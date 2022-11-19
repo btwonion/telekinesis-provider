@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": "${id}",
+  "name": "${name}",
+  "description": "${description}",
+  "contact": {
+    "issues": "https://github.com/btwonion/telekinesis-provider/issues",
+    "sources": "https://github.com/btwonion/telekinesis-provider"
+  },
+  "authors": [
+    {
+      "name": "btwonion"
+    }
+  ],
+  "contributors": [],
+  "license": [
+    "GNU General Public License v3.0"
+  ],
+  "version": "${version}",
+  "environment": "*",
+  "depends": {
+    "fabric-api": ">=0.66.0+1.19.2",
+    "telekinesis": ">=1.1.6-1.19.2",
+    "minecraft": ">=1.19.2"
+  },
+  "entrypoints": {
+    "main": [
+      {
+        "value": "dev.nyon.telekinesis.provider.TelekinesisProvider"
+      }
+    ]
+  },
+  "mixins": [
+    "telekinesis-provider.mixins.json"
+  ],
+  "custom": {
+    "modmenu": {
+      "links": {
+        "modmenu.discord": "https://discord.gg/pmHTtZnMd3"
+      }
+    }
+  }
+}

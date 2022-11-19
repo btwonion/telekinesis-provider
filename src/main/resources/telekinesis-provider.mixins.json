@@ -1,0 +1,12 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "dev.nyon.telekinesis.provider.mixins",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+    "treeharvester.TreeEventMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
