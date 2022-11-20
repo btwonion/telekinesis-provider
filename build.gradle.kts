@@ -10,7 +10,7 @@ plugins {
 }
 
 group = "dev.nyon"
-val majorVersion = "1.0.0"
+val majorVersion = "1.0.1"
 version = "$majorVersion-1.19.2"
 val authors = listOf("btwonion")
 val githubRepo = "btwonion/telekinesis-provider"
@@ -21,6 +21,17 @@ repositories {
         setUrl("https://cursemaven.com/")
         content {
             includeGroup("curse.maven")
+        }
+    }
+    exclusiveContent {
+        forRepository {
+            maven {
+                name = "Modrinth"
+                setUrl("https://api.modrinth.com/maven")
+            }
+        }
+        filter {
+            includeGroup("maven.modrinth")
         }
     }
 }
@@ -36,7 +47,8 @@ dependencies {
     modImplementation("net.fabricmc:fabric-language-kotlin:1.8.6+kotlin.1.7.21")
 
     modImplementation("dev.nyon:telekinesis:1.1.6-1.19.2")
-    modImplementation("curse.maven:tree-harvester-fabric-527685:4074122")
+    modApi("curse.maven:tree-harvester-fabric-527685:4074122")
+    modApi("maven.modrinth:betterfarmland:1.0.2")
 }
 
 tasks {
@@ -70,7 +82,6 @@ tasks {
         dependsOn("modrinth")
         dependsOn("modrinthSyncBody")
         dependsOn("githubRelease")
-        dependsOn("publish")
     }
 
     withType<JavaCompile> {
@@ -78,12 +89,9 @@ tasks {
     }
 }
 
-val changelogText =
-    file("changelogs/$majorVersion.md").takeIf { it.exists() }?.readText() ?: "No changelog provided."
-
 modrinth {
     token.set(findProperty("modrinth.token")?.toString())
-    projectId.set("LLfA8jAD")
+    projectId.set("Gd0PFfQh")
     versionNumber.set("${project.version}")
     versionType.set("release")
     uploadFile.set(tasks["remapJar"])
@@ -92,7 +100,6 @@ modrinth {
     dependencies {
         required.project("fabric-api")
     }
-    changelog.set(changelogText)
     syncBodyFrom.set(file("README.md").readText())
 }
 
@@ -103,7 +110,6 @@ githubRelease {
     owner(split[0])
     repo(split[1])
     tagName("v${project.version}")
-    body(changelogText)
     releaseAssets(tasks["remapJar"].outputs.files)
     targetCommitish("master")
 }
