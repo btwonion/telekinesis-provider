@@ -4,3 +4,4 @@
 
 ## Currently supported: 
 - tree-harvester (fabric) - Serilum
+- BetterFarmland - HttpRafa
