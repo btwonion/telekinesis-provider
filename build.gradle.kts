@@ -10,7 +10,7 @@ plugins {
 }
 
 group = "dev.nyon"
-version = "1.0.1"
+version = "1.0.2"
 val authors = listOf("btwonion")
 val githubRepo = "btwonion/telekinesis-provider"
 
