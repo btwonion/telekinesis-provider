@@ -4,6 +4,7 @@
   "package": "dev.nyon.telekinesis.provider.mixins",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
+    "betterfarmland.UseBlockCallbackListenerMixin",
     "treeharvester.TreeEventMixin"
   ],
   "injectors": {

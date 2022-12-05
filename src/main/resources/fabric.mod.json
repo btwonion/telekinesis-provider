@@ -19,7 +19,7 @@
   "version": "${version}",
   "environment": "*",
   "depends": {
-    "fabric-api": ">=0.66.0+1.19.2",
+    "fabric-api": ">=0.68.0+1.19.2",
     "telekinesis": ">=1.1.6-1.19.2",
     "minecraft": ">=1.19.2"
   },
