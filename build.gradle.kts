@@ -2,7 +2,7 @@ plugins {
     java
 
     id("fabric-loom") version "1.0-SNAPSHOT"
-    id("io.github.juuxel.loom-quiltflower") version "1.7.4"
+    id("io.github.juuxel.loom-quiltflower") version "1.8.0"
     id("org.quiltmc.quilt-mappings-on-loom") version "4.2.1"
 
     id("com.modrinth.minotaur") version "2.4.4"
@@ -10,8 +10,7 @@ plugins {
 }
 
 group = "dev.nyon"
-val majorVersion = "1.0.1"
-version = "$majorVersion-1.19.2"
+version = "1.0.1"
 val authors = listOf("btwonion")
 val githubRepo = "btwonion/telekinesis-provider"
 
@@ -42,13 +41,12 @@ dependencies {
         //addLayer(quiltMappings.mappings("org.quiltmc:quilt-mappings:1.19.2+build.21:v2"))
         officialMojangMappings()
     })
-    modImplementation("net.fabricmc:fabric-loader:0.14.10")
-    modImplementation("net.fabricmc.fabric-api:fabric-api:0.66.0+1.19.2")
-    modImplementation("net.fabricmc:fabric-language-kotlin:1.8.6+kotlin.1.7.21")
+    modImplementation("net.fabricmc:fabric-loader:0.14.11")
+    modImplementation("net.fabricmc.fabric-api:fabric-api:0.68.0+1.19.2")
 
     modImplementation("dev.nyon:telekinesis:1.1.6-1.19.2")
     modApi("curse.maven:tree-harvester-fabric-527685:4074122")
-    modApi("maven.modrinth:betterfarmland:1.0.2")
+    modApi("maven.modrinth:betterfarmland:1.0.3")
 }
 
 tasks {
